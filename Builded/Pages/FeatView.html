@@ -1,0 +1,87 @@
+﻿ویژگی ها
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+    
+    FeatView.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='ویژگی ها';
+        window.pageName='FeatView';
+    window.fileUploaded=false;
+        window.CurrentSerachMethod=FeatView.Serach;
+    }
+    $(document).ready(function () {
+    FeatView.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption>جست و جو : <input  class="form-control" type="text" onkeyup="ResetCheck();" ng-model="FilterValue" placeholder="عبارت مورد نظر جهت جست و جو"  /> </caption>
+ <thead>
+ <tr>
+
+ 
+<th>ردیف</th>
+
+ <th  class="Pointer"  ng-click="ChageTableOrder('FeatId')"  > <span ng-show="((currentOrder=='FeatId') && (rev) )">V</span> <span ng-show="((currentOrder=='FeatId') && (!rev) )">^</span>کد ویژگی</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('FeatTitle')"  > <span ng-show="((currentOrder=='FeatTitle') && (rev) )">V</span> <span ng-show="((currentOrder=='FeatTitle') && (!rev) )">^</span>نام ویژگی</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('PersianTitle')"  > <span ng-show="((currentOrder=='PersianTitle') && (rev) )">V</span> <span ng-show="((currentOrder=='PersianTitle') && (!rev) )">^</span>عنوان فارسی ویژگی</th> 
+<th>
+    عملیات
+</th>
+                    
+ </tr>
+   </thead>
+     <tr fliterrows="FeatViewrecords" ng-init="record.viewIndex=$index" ng-repeat="record in FeatViewrecords | orderBy:currentOrder :rev | filter:FilterValue " >
+<td data-label="ردیف">{{$index+1}}</td>
+<td data-label='کد ویژگی'>{{record.FeatId}}</td> 
+ 
+<td data-label='نام ویژگی'>{{record.FeatTitle}}</td> 
+ 
+<td data-label='عنوان فارسی ویژگی'>{{record.PersianTitle}}</td> 
+ 
+ 
+             <td data-label=''>
+ <div class="btn-group">
+ <button type="button" class="btn btn-default dropdown-toggle "
+ data-toggle="dropdown">
+ عملیات <span class="caret"></span>
+ </button>
+ <ul class="dropdown-menu" role="menu">
+ <li ><a href="#/FeatSelector/{{record.FeatId}}" >    انتخاب بازی ها</a></li> 
+
+ </ul>
+</div>
+</td>
+
+                        
+
+     </tr>
+
+ <tbody>
+</table>
+                 <form class="form-horizontal" role="form">
+    
+
+
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); FeatView.Serach();
+                      });
+    
+     </script>

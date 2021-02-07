@@ -1,0 +1,53 @@
+﻿استفاده از نمای سفارشی
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+                    
+    CustomView.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='استفاده از نمای سفارشی';
+        window.pageName='CustomView';
+    window.fileUploaded=false;
+                                                                window.CurrentSerachMethod=CustomView.Serach;
+    }
+    $(document).ready(function () {
+    CustomView.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+ 
+          </tr>
+   </thead>
+                   
+                         <tbody>
+</table>
+     
+          <span ng-repeat="r in records()"> {{r.id}}  {{r.value}} <br /></span>
+     
+              ردیف  {{fromRecords}} الی {{toRecords }} از {{totalRecords}}  ردیف       
+        <span   ng-repeat="p in pagingArray" type="button"   > <a style="cursor:pointer" ng-show="{{p.showit}}"  pager rowstart=" {{p.start}}"  onclick="goPaging($(this).attr('rowstart'))" >  <span ng-show="{{p.isCurrent}}!=true">{{p.caption}}</span> <span ng-show="{{p.isCurrent}}">[{{p.caption}}]</span>  </a></span> <div style="display:inline-block;width:200px " > <select style="width:100px !important" id="rowCountSelect" width="100px" rowcount onchange="GenPagingLinks();toRecords=fromRecords+ parseInt($(this).val())-1;setTimeout( CurrentSerachMethod,500);" class="form-control" >
+           <option value="10" >10</option><option value="20" >20</option> <option value="50" >50</option><option value="100" >100</option>
+                                                                       </select></div>
+     <button class="btn btn-default" ng-show="((fromRecords!=1) || (toRecords!=totalRecords))" onclick="fromRecords=1;toRecords=totalRecords;window.PagingMover();setTimeout( CurrentSerachMethod,500);" > نمایش همه </button>
+             </div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); CustomView.Serach();
+                      });
+    
+     </script>

@@ -1,0 +1,49 @@
+﻿
+
+تست دانلود
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+    <label  for="start" class="col-sm-2 control-label">           از
+      :</label>
+    <div   class="col-sm-4">
+   
+                                 <input type="Number" onkeypress="return blockNonIntNumber(event)" placeholder="" class="form-control" id="txtDownloadTeststart" placeholder="" />
+                                                                           
+      
+                            
+    </div>
+    <label  for="to" class="col-sm-2 control-label">           تا
+      :</label>
+    <div   class="col-sm-4">
+   
+                                 <input type="Number" onkeypress="return blockNonIntNumber(event)" placeholder="" class="form-control" id="txtDownloadTestto" placeholder="" />
+                                                                           
+      
+                            
+    </div>
+     </div>
+     <div class="form-group">
+  </div>
+    </from>
+  <script>
+                    
+    DownloadTest.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='تست دانلود';
+        window.pageName='DownloadTest';
+    window.fileUploaded=false;
+                                                                window.CurrentSerachMethod=DownloadTest.Serach;
+    }
+    $(document).ready(function () {
+    DownloadTest.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-primary" onclick="DownloadTest.DownloadNow(this)"><i class="fas fa-ok"></i> تایید</button>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+ 

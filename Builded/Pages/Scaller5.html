@@ -1,0 +1,70 @@
+﻿جدول ساده بدون پارامتر
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    
+  متن نمایشی توضیحاتی 1 <br/>
+        
+  متن نمایشی توضیحاتی 2 <br/>
+        </from>
+  <script>
+    
+    Scaller5.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='جدول ساده بدون پارامتر';
+        window.pageName='Scaller5';
+    window.fileUploaded=false;
+        window.CurrentSerachMethod=Scaller5.Serach;
+    }
+    $(document).ready(function () {
+    Scaller5.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+
+ 
+
+ <th  > کد شهر</th> 
+ <th  > عنوان شهر</th> 
+               
+ </tr>
+   </thead>
+           <tr fliterrows="Scaller5records" ng-init="record.viewIndex=$index" ng-repeat="record in Scaller5records | orderBy:currentOrder :rev " >
+        <td data-label='کد شهر'>{{record.cityId}}</td> 
+ 
+<td data-label='عنوان شهر'>{{record.cityTitle}}</td> 
+ 
+             
+                        
+           </tr>
+     <tbody>
+</table>
+     
+    
+                 <form class="form-horizontal" role="form">
+    
+
+
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); Scaller5.Serach();
+                      });
+    
+     </script>

@@ -1,0 +1,85 @@
+﻿تعریف حساب ها
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+            
+    Account_mgt.IntForm=function()
+    {
+        document.title='تعریف حساب ها';
+        window.pageName='Account_mgt';
+    window.fileUploaded=false;
+                                    window.CurrentSerachMethod=Account_mgt.Serach;
+    }
+    $(document).ready(function () {
+    Account_mgt.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+<a onclick='Account_mgt.InsertRecord()' ><button type="button" class="btn btn-default" > ردیف جدید</button></a>
+<a onclick='Account_mgt.Save()' ><button type="button" class="btn btn-default" > ذخیره</button></a>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption>جست و جو : <input  class="form-control" type="text" onkeyup="ResetCheck();" ng-model="FilterValue" placeholder="عبارت مورد نظر جهت جست و جو"  /> </caption>
+ <thead>
+ <tr>
+
+ 
+<th>ردیف</th>
+
+ <th  class="Pointer"  ng-click="ChageTableOrder('AccId')"  > <span ng-show="((currentOrder=='AccId') && (rev) )">V</span> <span ng-show="((currentOrder=='AccId') && (!rev) )">^</span>شناسه حساب</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('AccCode')"  > <span ng-show="((currentOrder=='AccCode') && (rev) )">V</span> <span ng-show="((currentOrder=='AccCode') && (!rev) )">^</span>کد حساب</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('AccName')"  > <span ng-show="((currentOrder=='AccName') && (rev) )">V</span> <span ng-show="((currentOrder=='AccName') && (!rev) )">^</span>عنوان حساب</th> 
+<th>
+    عملیات
+</th>
+                    
+ </tr>
+   </thead>
+     <tr fliterrows="Account_mgtrecords" ng-init="record.viewIndex=$index" ng-repeat="record in Account_mgtrecords | orderBy:currentOrder :rev | filter:FilterValue " >
+<td data-label="ردیف">{{$index+1}}</td>
+<td data-label='شناسه حساب'>{{record.AccId}}</td> 
+ 
+ <td data-label='کد حساب'><input class="form-control" type="text" id="AccCode_{{record.rndId}}" value="{{record.AccCode}}" ng-change="ChangeState(record);"  ng-model="record.AccCode"  /></td> 
+ 
+ <td data-label='عنوان حساب'><input class="form-control" type="text" id="AccName_{{record.rndId}}" value="{{record.AccName}}" ng-change="ChangeState(record);"  ng-model="record.AccName"  /></td> 
+ 
+ 
+ 
+             <td data-label=''>
+ <div class="btn-group">
+ <button type="button" class="btn btn-default dropdown-toggle "
+ data-toggle="dropdown">
+ عملیات <span class="caret"></span>
+ </button>
+ <ul class="dropdown-menu" role="menu">
+ <li ><a   ng-click="RemoveItem( record)"   >حذف</a></li> 
+ <li ng-show='{{record.AccId}}!=-1' ><a href="#/Account_mgt/{{record.AccId}}" >    نمایش زیر مجموعه</a></li> 
+
+ </ul>
+</div>
+</td>
+
+                        
+
+     </tr>
+
+ <tbody>
+</table>
+         <form class="form-horizontal" role="form">
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             Account_mgt.Serach();
+                      });
+    
+     </script>

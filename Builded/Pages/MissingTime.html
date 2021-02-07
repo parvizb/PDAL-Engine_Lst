@@ -1,0 +1,97 @@
+﻿نمایش خله های زمانی
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+    <label  for="prsName" class="col-sm-2 control-label">     <span class="red" >*</span>        شماره پرسنلی
+      :</label>
+    <div   class="col-sm-4">
+   
+                                 <input type="Number" onkeypress="return blockNonIntNumber(event)" placeholder="" class="form-control" id="txtMissingTimeprsName" placeholder="" />
+                                                                           
+      
+                            
+    </div>
+    <label  for="startDate" class="col-sm-2 control-label">     <span class="red" >*</span>        از تاریخ
+      :</label>
+    <div   class="col-sm-4">
+   
+                                                                                                
+      
+                              <input  type="text"    onBlur="ReformatDate('txtMissingTimestartDate')"  class="form-control" id="txtMissingTimestartDate" placeholder="yyyy/mm/dd" max-length="10" ></input>
+          
+    </div>
+     </div>
+     <div class="form-group">
+    <label  for="toDate" class="col-sm-2 control-label">     <span class="red" >*</span>        تا تاریخ
+      :</label>
+    <div   class="col-sm-4">
+   
+                                                                                                
+      
+                              <input  type="text"    onBlur="ReformatDate('txtMissingTimetoDate')"  class="form-control" id="txtMissingTimetoDate" placeholder="yyyy/mm/dd" max-length="10" ></input>
+          
+    </div>
+    <label  for="startTime" class="col-sm-2 control-label">     <span class="red" >*</span>        شروع کار
+      :</label>
+    <div   class="col-sm-4">
+   
+                                                         <input type="Text"  maxlength="8" placeholder=""  onkeypress="return blockNonTimeNumber(event)" class="form-control" id="txtMissingTimestartTime" placeholder="" />
+                                                   
+      
+                            
+    </div>
+     </div>
+     <div class="form-group">
+    <label  for="endTime" class="col-sm-2 control-label">     <span class="red" >*</span>        پایان کار
+      :</label>
+    <div   class="col-sm-4">
+   
+                                                         <input type="Text"  maxlength="8" placeholder=""  onkeypress="return blockNonTimeNumber(event)" class="form-control" id="txtMissingTimeendTime" placeholder="" />
+                                                   
+      
+                            
+    </div>
+  </div>
+    </from>
+  <script>
+                                            
+    MissingTime.IntForm=function()
+    {
+        document.title='نمایش خله های زمانی';
+        window.pageName='MissingTime';
+    window.fileUploaded=false;
+                                                kamaDatepicker('txtMissingTimestartDate', { buttonsColor: "red" ,sync:'true',highlightSelectedDay:'true'});
+                                    kamaDatepicker('txtMissingTimetoDate', { buttonsColor: "red" ,sync:'true',highlightSelectedDay:'true'});
+                                                                                window.CurrentSerachMethod=MissingTime.Serach;
+    }
+    $(document).ready(function () {
+    MissingTime.IntForm();
+    
+    
+    });
+  </script>
+
+<button type="button" class="btn btn-primary"  onclick="MissingTime.Serach(this)"><i class="fas fa-serach"></i>نمایش</button>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+ 
+          </tr>
+   </thead>
+     <tr fliterrows="MissingTimerecords" ng-init="record.viewIndex=$index" ng-repeat="record in MissingTimerecords | orderBy:currentOrder :rev " >
+             
+                  
+     </tr>
+
+ <tbody>
+</table>
+     </div>
+     <script>
+         $(document).ready(function () {
+                      });
+    
+     </script>

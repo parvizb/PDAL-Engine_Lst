@@ -1,0 +1,87 @@
+﻿تعریف گروه
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+    
+    AccGroup_mgt.IntForm=function()
+    {
+        document.title='تعریف گروه';
+        window.pageName='AccGroup_mgt';
+    window.fileUploaded=false;
+        window.CurrentSerachMethod=AccGroup_mgt.Serach;
+    }
+    $(document).ready(function () {
+    AccGroup_mgt.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+<a onclick='AccGroup_mgt.InsertRecord()' ><button type="button" class="btn btn-default" > ردیف جدید</button></a>
+<a onclick='AccGroup_mgt.Save()' ><button type="button" class="btn btn-default" > ذخیره</button></a>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption>جست و جو : <input  class="form-control" type="text" onkeyup="ResetCheck();" ng-model="FilterValue" placeholder="عبارت مورد نظر جهت جست و جو"  /> </caption>
+ <thead>
+ <tr>
+
+ 
+<th>ردیف</th>
+
+ <th  class="Pointer"  ng-click="ChageTableOrder('GroupId')"  > <span ng-show="((currentOrder=='GroupId') && (rev) )">V</span> <span ng-show="((currentOrder=='GroupId') && (!rev) )">^</span>شناسه گروه</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('GroupName')"  > <span ng-show="((currentOrder=='GroupName') && (rev) )">V</span> <span ng-show="((currentOrder=='GroupName') && (!rev) )">^</span>عنوان گروه</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('GroupType')"  > <span ng-show="((currentOrder=='GroupType') && (rev) )">V</span> <span ng-show="((currentOrder=='GroupType') && (!rev) )">^</span>نوع گروه</th> 
+<th>
+    عملیات
+</th>
+                    
+ </tr>
+   </thead>
+     <tr fliterrows="AccGroup_mgtrecords" ng-init="record.viewIndex=$index" ng-repeat="record in AccGroup_mgtrecords | orderBy:currentOrder :rev | filter:FilterValue " >
+<td data-label="ردیف">{{$index+1}}</td>
+<td data-label='شناسه گروه'>{{record.GroupId}}</td> 
+ 
+ <td data-label='عنوان گروه'><input class="form-control" type="text" id="GroupName_{{record.rndId}}" value="{{record.GroupName}}" ng-change="ChangeState(record);"  ng-model="record.GroupName"  /></td> 
+ 
+ 
+ <td data-label='نوع گروه'><select class="form-control" id="GroupType_{{record.rndId}}"  value="{{record.GroupType}}" ng-change="ChangeState(record);"   ng-model="record.GroupType"  >
+  <option value="0">بدون تاثیر مستقیم در سود و زیان</option>
+  <option value="1">ارتباط مستقیم  با سود</option>
+  <option value="2">ارتباط مستقیم  با زیان</option>
+</select></td> 
+ 
+             <td data-label=''>
+ <div class="btn-group">
+ <button type="button" class="btn btn-default dropdown-toggle "
+ data-toggle="dropdown">
+ عملیات <span class="caret"></span>
+ </button>
+ <ul class="dropdown-menu" role="menu">
+ <li ><a   ng-click="RemoveItem( record)"   >حذف</a></li> 
+
+ </ul>
+</div>
+</td>
+
+                        
+
+     </tr>
+
+ <tbody>
+</table>
+         <form class="form-horizontal" role="form">
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             AccGroup_mgt.Serach();
+                      });
+    
+     </script>

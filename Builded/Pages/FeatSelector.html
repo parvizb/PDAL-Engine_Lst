@@ -1,0 +1,100 @@
+﻿انتخاب بازی ها
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+            
+    FeatSelector.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='انتخاب بازی ها';
+        window.pageName='FeatSelector';
+    window.fileUploaded=false;
+                                    window.CurrentSerachMethod=FeatSelector.Serach;
+    }
+    $(document).ready(function () {
+    FeatSelector.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+<a onclick='FeatSelector.Apply()' ><button type="button" class="btn btn-default" > ثبت</button></a>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption>جست و جو : <input  class="form-control" type="text" onkeyup="ResetCheck();" ng-model="FilterValue" placeholder="عبارت مورد نظر جهت جست و جو"  /> </caption>
+ <thead>
+ <tr>
+<th><input type="checkbox" id="checkAll" onclick="CheckAllTable(this.checked)"  /></th>
+
+ 
+
+ <th  class="Pointer"  ng-click="ChageTableOrder('GameId')"  > <span ng-show="((currentOrder=='GameId') && (rev) )">V</span> <span ng-show="((currentOrder=='GameId') && (!rev) )">^</span>شناسه بازی</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('GameTitle')"  > <span ng-show="((currentOrder=='GameTitle') && (rev) )">V</span> <span ng-show="((currentOrder=='GameTitle') && (!rev) )">^</span>عنوان بازی</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('logoUrl')"  > <span ng-show="((currentOrder=='logoUrl') && (rev) )">V</span> <span ng-show="((currentOrder=='logoUrl') && (!rev) )">^</span>عکس بازی</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('Developer')"  > <span ng-show="((currentOrder=='Developer') && (rev) )">V</span> <span ng-show="((currentOrder=='Developer') && (!rev) )">^</span>سازنده</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('Publisher')"  > <span ng-show="((currentOrder=='Publisher') && (rev) )">V</span> <span ng-show="((currentOrder=='Publisher') && (!rev) )">^</span>ناشر</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('Serais')"  > <span ng-show="((currentOrder=='Serais') && (rev) )">V</span> <span ng-show="((currentOrder=='Serais') && (!rev) )">^</span>سری بازی</th> 
+ <th  class="Pointer"  ng-click="ChageTableOrder('Genare')"  > <span ng-show="((currentOrder=='Genare') && (rev) )">V</span> <span ng-show="((currentOrder=='Genare') && (!rev) )">^</span>موضوع</th> 
+<th>
+    عملیات
+</th>
+                    
+ </tr>
+   </thead>
+     <tr fliterrows="FeatSelectorrecords" ng-init="record.viewIndex=$index" ng-repeat="record in FeatSelectorrecords | orderBy:currentOrder :rev | filter:FilterValue " >
+<th><input type="checkbox" tableCheck="yes" id="selected_{{record.rndId}}" onchange="sendCheckboxToRecord(this)"  /></th>
+<td data-label='شناسه بازی'>{{record.GameId}}</td> 
+ 
+<td data-label='عنوان بازی'>{{record.GameTitle}}</td> 
+ 
+<td data-label='عکس بازی'>{{record.logoUrl}}</td> 
+ 
+<td data-label='سازنده'>{{record.Developer}}</td> 
+ 
+<td data-label='ناشر'>{{record.Publisher}}</td> 
+ 
+<td data-label='سری بازی'>{{record.Serais}}</td> 
+ 
+<td data-label='موضوع'>{{record.Genare}}</td> 
+ 
+ 
+             <td data-label=''>
+ <div class="btn-group">
+ <button type="button" class="btn btn-default dropdown-toggle "
+ data-toggle="dropdown">
+ عملیات <span class="caret"></span>
+ </button>
+ <ul class="dropdown-menu" role="menu">
+ <li ><a href="#/GameLike/{{record.GameId}}" >    بازی مشابه</a></li> 
+
+ </ul>
+</div>
+</td>
+
+                        
+
+     </tr>
+
+ <tbody>
+</table>
+                 <form class="form-horizontal" role="form">
+    
+
+
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); FeatSelector.Serach();
+                      });
+    
+     </script>

@@ -1,0 +1,88 @@
+﻿جست و جو بازی
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+    <label  for="Word" class="col-sm-2 control-label">           عبارت
+      :</label>
+    <div   class="col-sm-4">
+   
+            <input type="text"   class="form-control" id="txtDailogSampleWord" placeholder=""  placeholder="" />
+                                                                                                
+      
+                            
+    </div>
+  </div>
+    </from>
+  <script>
+            
+    DailogSample.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        window.pageName='DailogSample';
+    window.fileUploaded=false;
+                                    window.CurrentSerachMethod=DailogSample.Serach;
+    }
+    $(document).ready(function () {
+    DailogSample.IntForm();
+    
+    
+    });
+  </script>
+
+<button type="button" class="btn btn-primary"  onclick="resetPaging();DailogSample.Serach(this)"><i class="fas fa-serach"></i>نمایش</button>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+
+ 
+
+ <th  > شناسه بازی</th> 
+ <th  > عنوان بازی</th> 
+<th>
+    عملیات
+</th>
+                    
+ </tr>
+   </thead>
+           <tr fliterrows="DailogSamplerecords" ng-init="record.viewIndex=$index" ng-click="SelectRow(record);" ng-dblclick="SelectNow(record);" style="cursor:pointer" ng-repeat="record in DailogSamplerecords | orderBy:currentOrder :rev " >
+        <td data-label='شناسه بازی'>{{record.GameId}}</td> 
+ 
+<td data-label='عنوان بازی'>{{record.GameTitle}}</td> 
+ 
+             <td data-label=''>
+ <div class="btn-group">
+ <button type="button" class="btn btn-default dropdown-toggle "
+ data-toggle="dropdown">
+ عملیات <span class="caret"></span>
+ </button>
+ <ul class="dropdown-menu" role="menu">
+
+ </ul>
+</div>
+</td>
+
+                        
+           </tr>
+     <tbody>
+</table>
+     
+    
+                 <form class="form-horizontal" role="form">
+    
+
+
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+                      });
+    
+     </script>

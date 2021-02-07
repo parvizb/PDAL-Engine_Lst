@@ -1,0 +1,69 @@
+﻿جدول چند ستونی یا محوری
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+    
+    PoivtTable.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='جدول چند ستونی یا محوری';
+        window.pageName='PoivtTable';
+    window.fileUploaded=false;
+        window.CurrentSerachMethod=PoivtTable.Serach;
+    }
+    $(document).ready(function () {
+    PoivtTable.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+
+ 
+
+ <th  > نام شهر</th> 
+                  
+    <th ng-repeat="col in  PoivtTablePoivtData.columns"   > {{col}}</th>  
+
+       
+ </tr>
+   </thead>
+           <tr fliterrows="PoivtTablerecords" ng-init="record.viewIndex=$index" ng-repeat="record in PoivtTablerecords | orderBy:currentOrder :rev " >
+        <td data-label='نام شهر'>{{record.title}}</td> 
+ 
+             
+                           
+    <td data-label='{{col}}' ng-repeat="col in  PoivtTablePoivtData.columns"   > {{ShowMoney(record['col'+$index])}}</td>  
+
+       
+           </tr>
+     <tbody>
+</table>
+     
+    
+                 <form class="form-horizontal" role="form">
+    
+
+
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); PoivtTable.Serach();
+                      });
+    
+     </script>

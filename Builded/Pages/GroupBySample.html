@@ -1,0 +1,51 @@
+﻿مثال گروه بندی داده ها
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+    
+    GroupBySample.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='مثال گروه بندی داده ها';
+        window.pageName='GroupBySample';
+    window.fileUploaded=false;
+        window.CurrentSerachMethod=GroupBySample.Serach;
+    }
+    $(document).ready(function () {
+    GroupBySample.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+ 
+          </tr>
+   </thead>
+                   
+                         <tbody>
+</table>
+     
+          <div ng-repeat="g in groupby( records(),['Publisher','Developer'])">
+            {{g.headers["Publisher"]}} و {{g.headers["Developer"]}} تعداد بازی   {{GroupCount('*',g.subRecords)}}     مجموع کد های بازی :{{GroupSum('GameId',g.subRecords)}} <br /><span ng-repeat="r in g.subRecords">
+               {{r.GameTitle}}
+               <br /></span><hr /></div>
+     
+             </div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); GroupBySample.Serach();
+                      });
+    
+     </script>

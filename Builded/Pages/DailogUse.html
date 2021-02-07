@@ -1,0 +1,42 @@
+﻿
+
+استفاده از دیالوگ
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+    <label  for="a" class="col-sm-2 control-label">           ورودی 
+                                                <a onclick='DailogSample.SerachAndPutValue("a","GameTitle");' >
+        <button type="button" class="btn btn-default" >
+           استفاده از کادر</button>
+      </a>
+                              :</label>
+    <div   class="col-sm-4">
+   
+            <input type="text"   class="form-control" id="txtDailogUsea" placeholder=""  placeholder="" />
+                                                                                                
+      
+                            
+    </div>
+  </div>
+    </from>
+  <script>
+            
+    DailogUse.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='استفاده از دیالوگ';
+        window.pageName='DailogUse';
+    window.fileUploaded=false;
+                                    window.CurrentSerachMethod=DailogUse.Serach;
+    }
+    $(document).ready(function () {
+    DailogUse.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-primary" onclick="DailogUse.Submit(this)"><i class="fas fa-ok"></i> تایید</button>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+ 

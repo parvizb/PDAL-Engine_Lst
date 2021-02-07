@@ -1,0 +1,56 @@
+﻿
+
+استفاده از ورودی جست و جو
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+    <label  for="a" class="col-sm-2 control-label">           ورودی 
+                                                            <a onclick='DailogSample.SerachAndPutValueSelect2Ajax("a","GameId");' >
+        <button type="button" class="btn btn-default" >
+           استفاده از کادر</button>
+      </a>
+                  :</label>
+    <div   class="col-sm-4">
+   
+                                                                                                
+      
+                  <select class="form-control" id="txtSelect2a" ></select>
+                      
+    </div>
+  </div>
+    </from>
+  <script>
+            var a =null;
+        
+    Select2.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='استفاده از ورودی جست و جو';
+        window.pageName='Select2';
+    window.fileUploaded=false;
+            
+    a=  Select2AjaxInit('txtSelect2a',function(term, page){
+    var DataPass=new Object();
+    DataPass.PageName='Select2';
+    DataPass.ParaName='a';
+    DataPass.Parameters=new Array();
+            DataPass.Parameters.push(toInput('Word',term.term));
+                    return JSON.stringify(DataPass);
+    });
+        a.Set_Direct=function(val){
+    Select2AjaxDirect('Select2','a',val,'txtSelect2a');
+
+    };
+                                window.CurrentSerachMethod=Select2.Serach;
+    }
+    $(document).ready(function () {
+    Select2.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-primary" onclick="Select2.Submit(this)"><i class="fas fa-ok"></i> تایید</button>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+ 

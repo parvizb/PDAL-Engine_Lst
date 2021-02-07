@@ -1,0 +1,42 @@
+﻿
+
+استفاده کادر ورودی سریع
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+    <label  for="A" class="col-sm-2 control-label">           ورودی 
+                              <a onclick='InputBox('مثال',['ورودی 1','ورودی 2','ورودی 3'] ,function ($('#QuickInputBoxA').val($('#arg0').val()  )  ))' >
+        <button type="button" class="btn btn-default" >
+          <i class="fas fa-plus" />  </button>
+      </a>
+                                                :</label>
+    <div   class="col-sm-4">
+   
+            <input type="text"   class="form-control" id="txtQuickInputBoxA" placeholder=""  placeholder="" />
+                                                                                                
+      
+                            
+    </div>
+  </div>
+    </from>
+  <script>
+            
+    QuickInputBox.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='استفاده کادر ورودی سریع';
+        window.pageName='QuickInputBox';
+    window.fileUploaded=false;
+                                    window.CurrentSerachMethod=QuickInputBox.Serach;
+    }
+    $(document).ready(function () {
+    QuickInputBox.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-primary" onclick="QuickInputBox.Submit(this)"><i class="fas fa-ok"></i> تایید</button>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+ 

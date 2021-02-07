@@ -1,0 +1,48 @@
+﻿جدول ساده بدون پارامتر
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+    
+    SimpleTable1.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='جدول ساده بدون پارامتر';
+        window.pageName='SimpleTable1';
+    window.fileUploaded=false;
+        window.CurrentSerachMethod=SimpleTable1.Serach;
+    }
+    $(document).ready(function () {
+    SimpleTable1.IntForm();
+    
+    
+    });
+  </script>
+ <button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back" ></i>  بازگشا</button>
+
+
+     <script>
+         $(document).ready(function () {
+             
+             SimpleTable1.Serach();
+                      });
+     </script>
+<div class="form-horizontal" role="form" fliterrows="SimpleTable1records" ng-repeat="record in SimpleTable1records">
+  <div class="form-group">
+  <label for="" class="col-sm-0 control-label">کد شهر:</label>
+      <div class="col-sm-0">
+{{record.cityId}}
+                           </div>
+  <label for="" class="col-sm-0 control-label">عنوان شهر:</label>
+      <div class="col-sm-0">
+{{record.cityTitle}}
+                           </div>
+  </div>
+<div class="form-group">
+    </div>
+</div>
+

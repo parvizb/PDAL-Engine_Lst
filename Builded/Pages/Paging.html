@@ -1,0 +1,87 @@
+﻿استفاده از صفحه بندی 
+<hr />
+<form class="NotPrintable form-horizontal"  role="form">
+  <div class="form-group">
+  </div>
+    </from>
+  <script>
+                    
+    Paging.IntForm=function()
+    {
+    fromRecords=1;
+    toRecords=9999999999;
+    totalRecords=0;
+        document.title='استفاده از صفحه بندی ';
+        window.pageName='Paging';
+    window.fileUploaded=false;
+                                                                window.CurrentSerachMethod=Paging.Serach;
+    }
+    $(document).ready(function () {
+    Paging.IntForm();
+    
+    
+    });
+  </script>
+<button type="button" class="btn btn-default" onclick="BackPage()"><i class="fas fa-back"></i>بازگشت</button>
+
+<div class="table-responsive">
+<table class="table table-bordered table table-striped">
+<caption></caption>
+ <thead>
+ <tr>
+
+ 
+<th>ردیف</th>
+
+ <th  > شناسه</th> 
+ <th  > مقدار</th> 
+<th>
+    عملیات
+</th>
+                    
+ </tr>
+   </thead>
+           <tr fliterrows="Pagingrecords" ng-init="record.viewIndex=$index" ng-repeat="record in Pagingrecords | orderBy:currentOrder :rev " >
+        <td data-label="ردیف">{{$index+1 + (   ( Num(fromRecords)==0 ? 0 : Num(fromRecords-1) )   )  }}</td>
+<td data-label='شناسه'>{{record.id}}</td> 
+ 
+<td data-label='مقدار'>{{record.value}}</td> 
+ 
+             <td data-label=''>
+ <div class="btn-group">
+ <button type="button" class="btn btn-default dropdown-toggle "
+ data-toggle="dropdown">
+ عملیات <span class="caret"></span>
+ </button>
+ <ul class="dropdown-menu" role="menu">
+
+ </ul>
+</div>
+</td>
+
+                        
+           </tr>
+     <tbody>
+</table>
+     
+    
+              ردیف  {{fromRecords}} الی {{toRecords }} از {{totalRecords}}  ردیف       
+        <span   ng-repeat="p in pagingArray" type="button"   > <a style="cursor:pointer" ng-show="{{p.showit}}"  pager rowstart=" {{p.start}}"  onclick="goPaging($(this).attr('rowstart'))" >  <span ng-show="{{p.isCurrent}}!=true">{{p.caption}}</span> <span ng-show="{{p.isCurrent}}">[{{p.caption}}]</span>  </a></span> <div style="display:inline-block;width:200px " > <select style="width:100px !important" id="rowCountSelect" width="100px" rowcount onchange="GenPagingLinks();toRecords=fromRecords+ parseInt($(this).val())-1;setTimeout( CurrentSerachMethod,500);" class="form-control" >
+           <option value="10" >10</option><option value="20" >20</option> <option value="50" >50</option><option value="100" >100</option>
+                                                                       </select></div>
+     <button class="btn btn-default" ng-show="((fromRecords!=1) || (toRecords!=totalRecords))" onclick="fromRecords=1;toRecords=totalRecords;window.PagingMover();setTimeout( CurrentSerachMethod,500);" > نمایش همه </button>
+                 <form class="form-horizontal" role="form">
+    
+
+
+  <div class="form-group">
+ 
+
+</div>
+     <script>
+         $(document).ready(function () {
+             
+             resetPaging(); Paging.Serach();
+                      });
+    
+     </script>
